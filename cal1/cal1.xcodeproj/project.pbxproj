@@ -411,6 +411,7 @@
 				F76E47F51AF72919008AC2E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F76E47F61AF72919008AC2E2 /* Build configuration list for PBXNativeTarget "cal1Tests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +420,7 @@
 				F76E47F81AF72919008AC2E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
