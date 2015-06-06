@@ -57,6 +57,15 @@ class ViewController: UIViewController {
         resultLabel.text = "0"
         //計算結果ラベルをviewcontrollerクラスのviewに設置
         self.view.addSubview(resultLabel)
+        
+        // ボタンのラベルタイトルを配列で用意
+        let buttonLabels = [
+            "AC","+/-","%","÷",
+            "7","8","9","×",
+            "4","5","6","-",
+            "1","2","3","+",
+            "0","00",".","="
+        ]
        
         //繰り返し処理でボタンを配置
         for var y = 0; y < yButtonCount; y++ {
@@ -77,6 +86,10 @@ class ViewController: UIViewController {
                 width: buttonWidth, height: buttonHeight)
         //ボタン背景色設定
         button.backgroundColor = UIColor.lightGrayColor()
+        //ボタンのラベルタイトルを取り出すインデックス番号
+                var buttonNumber = y * xButtonCount + x
+        //ボタンのラベルタイトルを設定
+                button.setTitle( buttonLabels[buttonNumber], forState: UIControlState.Normal)
         //ボタン配置
         self.view.addSubview(button)
         }
