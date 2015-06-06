@@ -9,9 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     //計算結果を表示するラベルを宣言
     var resultLabel = UILabel()
+    let xButtonCount = 4    // 1行に配置するボタンの数
+    let yButtonCount = 5    // 1列に配置するボタンの数
     
     
     //画面の横サイズを格納するメンバ変数
@@ -19,7 +20,7 @@ class ViewController: UIViewController {
     //画面の縦幅
     let screenHidth:Double = Double(UIScreen.mainScreen().bounds.size.height)
     //ボタン間の余白（縦）＆（横）
-    let buttonmargin = 10.0
+    let buttonmargin = 5.0
     //計算結果表示エリアの縦幅
     var resultArea = 0.0
     
@@ -43,9 +44,9 @@ class ViewController: UIViewController {
         
         
         //計算結果ラベルのフレームを設定。横幅は端末の画面サイズから左右の隙間20ポイントを引く
-        resultLabel.frame = CGRect(x: 10, y: 30, width: screenWidth-20, height: resultArea - 30)
+        resultLabel.frame = CGRect(x: 5, y: 30, width: screenWidth-10, height: resultArea - 30)
         //計算結果ラベルの背景色を灰色にする
-        resultLabel.backgroundColor = UIColor.grayColor()
+        resultLabel.backgroundColor = UIColor.darkGrayColor()
 //      　計算結果ラベルのフォントと文字サイズを設定
         resultLabel.font = UIFont(name: "LetsgoDigital-Regular", size: 50)
 //        計算結果ラベルのアラインメントを右揃えに設定
@@ -56,29 +57,30 @@ class ViewController: UIViewController {
         resultLabel.text = "0"
         //計算結果ラベルをviewcontrollerクラスのviewに設置
         self.view.addSubview(resultLabel)
-        
+       
+        //繰り返し処理でボタンを配置
+        for var y = 0; y < yButtonCount; y++ {
+            for var x = 0; x < xButtonCount; x++ {
+    
         //計算機のボタンを作成
         var button = UIButton()
         //ボタンの横幅作成
-        var buttonWidth =
-            (screenWidth - (buttonmargin*(Duble(xButtonCount)+1)))
-         / Double(xButtonCount)
+        var buttonWidth = ( screenWidth - ( buttonmargin * ( Double(xButtonCount) + 1 ) ) ) /  Double(xButtonCount)
         //ボタンの縦幅サイズ作成
-        var buttonHeight = (screenHidth - resultArea - ((buttonmargin*Double(yButtonCount+1))) / Double(yButtonCount)
-    
-        
+        var buttonHeight = ( screenHidth - resultArea - ( ( buttonmargin * Double(yButtonCount) + 1 ) ) ) / Double(yButtonCount)
         //ボタンのX座標
-        var buttonPositionX = buttonmargin
+        var buttonPositionX =  ( screenWidth - buttonmargin) / Double(xButtonCount) * Double(x) + buttonmargin
         //ボタンのY座標
-        var buttonPositionY = resultArea + buttonmargin
+        var buttonPositionY = ( screenHidth - resultArea - buttonmargin) / Double(yButtonCount) * Double(y) + buttonmargin + resultArea
         //ボタンの縦幅サイズの作成
             button.frame = CGRect(x: buttonPositionX, y: buttonPositionY,
                 width: buttonWidth, height: buttonHeight)
         //ボタン背景色設定
-        
+        button.backgroundColor = UIColor.lightGrayColor()
         //ボタン配置
-        
-        //
+        self.view.addSubview(button)
+        }
+    }
         
         
     //画面の横幅のサイズを格納するメンバ変数
