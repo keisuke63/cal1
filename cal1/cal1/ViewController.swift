@@ -57,8 +57,28 @@ class ViewController: UIViewController {
         //計算結果ラベルをviewcontrollerクラスのviewに設置
         self.view.addSubview(resultLabel)
         
+        //計算機のボタンを作成
+        var button = UIButton()
+        //ボタンの横幅作成
+        var buttonWidth =
+            (screenWidth - (buttonmargin*(Duble(xButtonCount)+1)))
+         / Double(xButtonCount)
+        //ボタンの縦幅サイズ作成
+        var buttonHeight = (screenHidth - resultArea - ((buttonmargin*Double(yButtonCount+1))) / Double(yButtonCount)
+    
         
+        //ボタンのX座標
+        var buttonPositionX = buttonmargin
+        //ボタンのY座標
+        var buttonPositionY = resultArea + buttonmargin
+        //ボタンの縦幅サイズの作成
+            button.frame = CGRect(x: buttonPositionX, y: buttonPositionY,
+                width: buttonWidth, height: buttonHeight)
+        //ボタン背景色設定
         
+        //ボタン配置
+        
+        //
         
         
     //画面の横幅のサイズを格納するメンバ変数
