@@ -92,7 +92,17 @@ class ViewController: UIViewController {
                 button.setTitle( buttonLabels[buttonNumber], forState: UIControlState.Normal)
         //ボタン配置
         self.view.addSubview(button)
-        }
+        
+        //ボタンタップ時のアクション設定
+        button.addTarget(self, action: "buttonTapped", forControlEvents: TouchUpInside)
+        
+        //ボタンがタップされた時のメソッド
+                func buttonTapped(sender: UIButton)
+                {
+                    println("ボタンがタップされました")
+                }
+                
+            }
     }
         
         
